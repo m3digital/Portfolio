@@ -1,0 +1,36 @@
+body {
+    font-family: 'Fira Sans', sans-serif;
+}
+h1,h2,h3 {
+    text-transform: uppercase;
+    opacity: 1;
+}
+#hello {
+    font-size: 100px;
+    text-transform: capitalize;
+    font-weight: bold;
+}
+.navbar {
+    font-variant: small-caps;
+    text-rendering: auto;
+}
+.portfolio-box {
+    max-height: 493px;
+}
+.page-section {
+    padding: 60px 0px;
+}
+
+.project-name {
+    font-style: italic;
+}
+#contactContainer {
+    height: 235.22px;
+}
+    
+#contact.col-lg-4 {
+    margin-top: 80px;
+}
+#i.fas {
+    vertical-align: middle;
+}
