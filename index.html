@@ -299,11 +299,32 @@
 
     <!-- Call to Action Section -->
     <section class="page-section bg-dark text-white">
-      <div class="container text-center">
-        <h2 class="mb-4">What can I do for you?</h2>
-        <a class="btn btn-light btn-xl" href="MattGennings.vcf"
-          >Add my contact card!</a
-        >
+      <div class="row">
+        <div class="col-lg-4 mr-auto text-center">
+          <div class="container">
+            <h2 class="mb-4">What can I do for you?</h2>
+            <a class="btn btn-light btn-xl" href="MattGennings.vcf"
+              >Add my contact card!</a>
+          </div>
+          <div id="headshot" class="container">
+            <img src="img/headshot.png" alt="Headshot" />
+          </div>
+        </div>
+        <div class="col-lg-4 mr-auto text-center">
+          <div class="container">
+            <img src="img/spaceman.jpg" alt="SpaceMan" id="spaceman" />
+          </div>
+        </div>
+        <div class="col-lg-4 mr-auto text-center">
+            <h2 class="mb-4">Listen to my Playlist 🙌🏼</h2>
+            <iframe src="https://open.spotify.com/embed/playlist/1476yede4VEGfGVDDFNRsL" 
+              width="300" 
+              height="380" 
+              frameborder="0" 
+              allowtransparency="true" 
+              allow="encrypted-media">
+            </iframe>
+        </div>
       </div>
     </section>
 
@@ -311,12 +332,11 @@
     <section class="page-section" id="contactMain">
       <div class="container">
         <div class="row justify-content-center">
-          <div class="col-lg-8 text-center">
+          <div class="col-lg-10 text-center">
             <h2 class="mt-0">Let's Get In Touch!</h2>
             <hr class="divider my-4" />
             <p class="text-muted mb-5">
-              Ready to start your next project? Looking for a fresh re-design of
-              your website or iOS application? Reach me on any of the platforms
+              Ready to start your next project? Looking to build a website or iOS application that will significantly increase overall sales and brand awareness? Reach me on any of the platforms
               listed below and let's chat!<br />
               <i><b>-MG</b></i>
             </p>
@@ -328,45 +348,26 @@
           <div id="contact" class="row justify-content-center">
             <!-- Call me -->
             <div id="contact" class="col-lg-3 mr-auto text-center">
-              <i class="fas fa-phone fa-3x mb-3 text-muted"></i>
-              <div><a href="tel:+1-704-651-2683">(704)651-2683</a></div>
+              <a href="tel:+1-704-651-2683"><img src="img/phoneIcon.png" style="width:50px; height:50px" title="Phone" alt="Phone" /> 
+                <div id="contactSubtitle">(704)651-2683</a></div>
             </div>
 
             <!-- LinkedIn badge -->
             <div id="contact" class="col-lg-3 mr-auto text-center">
               <a href="https://linkedin.com/in/mgennings" target="_blank"><img src="img/linkedin.png" style="width:50px; height:50px" title="LinkedIn" alt="LinkedIn"/>
-                <div id="linkedin">Add my LinkedIn!</a></div>
+                <div id="contactSubtitle">Add me on LinkedIn</a></div>
             </div>
 
             <!-- Github -->
-            <div id="github" class="col-lg-3 mr-auto text-center">
-              <a class="github-button" href="https://github.com/m3digital" data-size="large" aria-label="Follow @m3digital on GitHub">Follow @m3digital</a>
-            </div>
-
-            <!-- Alternative LinkedIn Badge -->
-            <!-- <div
-              class="LI-profile-badge"
-              data-version="v1"
-              data-size="medium"
-              data-locale="en_US"
-              data-type="horizontal"
-              data-theme="light"
-              data-vanity="mgennings"
-            >
-              <a
-                class="LI-simple-link"
-                href="https://www.linkedin.com/in/mgennings?trk=profile-badge"
-                >Matt Gennings</a
-              >
-            </div> -->
-
             <div id="contact" class="col-lg-3 mr-auto text-center">
-              <i class="fas fa-envelope fa-3x mb-3 text-muted"></i>
-
-              <!-- Email me -->
-              <a class="d-block" href="mailto:info@m3digital.co"
-                >info@m3digital.co</a
-              >
+              <a href="https://github.com/m3digital" target="_blank"><img src="img/githubLogo.png" style="width:50px; height:50px" title="Github" alt="Github"/>
+                <div id="contactSubtitle">Follow me on GitHub</a></div>
+            </div>
+            
+            <!-- Email me -->
+            <div id="contact" class="col-lg-3 mr-auto text-center">
+                <a href="mailto:info@m3digital.co"><img src="img/mailIcon.png" style="width:50px; height:50px" title="Email" alt="Email"/>
+                  <div id="contactSubtitle">info@m3digital.co</a></div>
             </div>
           </div>
         </div>
