@@ -42,6 +42,10 @@ h1,h2,h3 {
 #contactSubtitle {
     padding: 15px 0;
 }
+#email {
+    padding: 7px 0;
+    
+}
 #headshot {
     padding: 60px 0 0 0;
 }
@@ -62,4 +66,8 @@ p.text-muted {
 }
 .img-fluid {
     /* padding: 3px; */
+}
+
+#contactEmail {
+    margin: 16px 0 16px 0;
 }
