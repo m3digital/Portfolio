@@ -53,9 +53,14 @@ p.text-muted.mb-5 {
     font-size: 24px;
 }
 #spaceman {
-    padding: 50px 0;
     opacity: 0.8;
-
+    vertical-align: middle;
+    padding: 40px 0;
+}
+#spacemanDiv {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
 }
 p.text-muted {
     padding: 15px 0;
@@ -63,9 +68,6 @@ p.text-muted {
 
 #contactMain {
     padding: 40px 0 10px 0;
-}
-.img-fluid {
-    /* padding: 3px; */
 }
 
 #contactEmail {
