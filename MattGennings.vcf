@@ -1,20 +1,24 @@
 BEGIN:VCARD
 VERSION:3.0
-PRODID:-//Apple Inc.//Mac OS X 10.14.5//EN
+PRODID:-//Apple Inc.//Mac OS X 10.14.6//EN
 N:Gennings;Matt;;;
 FN: Matt  Gennings 
+ORG:M³ Digital;
 item1.EMAIL;type=INTERNET;type=pref:mattguy19@gmail.com
 item1.X-ABLabel:_$!<Other>!$_
 EMAIL;type=INTERNET;type=WORK:info@m3digital.co
-EMAIL;type=INTERNET:matthewgennings@gmail.com
+EMAIL;type=INTERNET;type=WORK:matthewgennings@gmail.com
 item2.EMAIL;type=INTERNET:mattguy19@icloud.com
 item2.X-ABLabel:iCloud
 TEL;type=IPHONE;type=CELL;type=VOICE;type=pref:704-651-2683
-item3.ADR;type=HOME;type=pref:;;1137 Leigh Ave\n;Charlotte;NC;28205;United States
-item3.X-ABADR:us
-X-SOCIALPROFILE;type=linkedin:http://www.linkedin.com/in/mgennings
-item4.URL;type=pref:m3digital.co
-item4.X-ABLabel:_$!<HomePage>!$_
+item3.TEL:(980) 389-4227
+item3.X-ABLabel:Google Voice
+item4.ADR;type=HOME;type=pref:;;1137 Leigh Ave\n;Charlotte;NC;28205;United States
+item4.X-ABADR:us
+X-SOCIALPROFILE;type=linkedin:https://linkedin.com/in/mgennings
+URL;type=WORK;type=pref:https://m3digital.co
+item5.URL:https://mgennings.com
+item5.X-ABLabel:_$!<HomePage>!$_
 BDAY:1994-01-25
 PHOTO;ENCODING=b;TYPE=JPEG:/9j/4AAQSkZJRgABAQAAkACQAAD/4QB0RXhpZgAATU0AKgAA
  AAgABAEaAAUAAAABAAAAPgEbAAUAAAABAAAARgEoAAMAAAABAAIAAIdpAAQAAAABAAAATgAAAA
@@ -3363,10 +3367,10 @@ PHOTO;ENCODING=b;TYPE=JPEG:/9j/4AAQSkZJRgABAQAAkACQAAD/4QB0RXhpZgAATU0AKgAA
  MOhq8JXOMmslGxV+M9PerirCUbI3fOMajLbmPtircdzIw2AYaskFI3BC9PerCytJKHHGK6oy0J
  lK5ulQv31z+NAjt5PY/jWVDcyg/Mc/hWvCiTj5hVSqXMlKw8xAHrTSUX+GpPK296PNCjGM1hKF
  zohO5V+zy+tH2eX1/Sjzno81/WhxLImgXBB5qMBI/lAqfcxPJo2K1Q4Af/2Q==
-item5.X-ABRELATEDNAMES;type=pref:Carroll Gennings
-item5.X-ABLabel:_$!<Mother>!$_
-item6.X-ABRELATEDNAMES:John Gennings
-item6.X-ABLabel:_$!<Father>!$_
-item7.X-ABRELATEDNAMES:Laura Gennings
-item7.X-ABLabel:_$!<Sister>!$_
+item6.X-ABRELATEDNAMES;type=pref:Carroll Gennings
+item6.X-ABLabel:_$!<Mother>!$_
+item7.X-ABRELATEDNAMES:John Gennings
+item7.X-ABLabel:_$!<Father>!$_
+item8.X-ABRELATEDNAMES:Laura Gennings
+item8.X-ABLabel:_$!<Sister>!$_
 END:VCARD
