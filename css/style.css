@@ -52,7 +52,7 @@ h1,h2,h3 {
 p.text-muted.mb-5 {
     font-size: 18px;
 }
-#spaceman {
+/* #spaceman {
     opacity: 0.8;
     vertical-align: middle;
     padding: 40px 0;
@@ -63,6 +63,10 @@ p.text-muted.mb-5 {
     align-items: center;
     flex-wrap: wrap;
     padding: 0;
+} */
+#spaceman {
+    padding: 40px 0;
+    max-width: 400px
 }
 p.text-muted {
     padding: 15px 0;
