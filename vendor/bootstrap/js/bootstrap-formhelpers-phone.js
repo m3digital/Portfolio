@@ -17,10 +17,8 @@
  * limitations under the License.
  * ========================================================== */
 
-+function ($) {
-
-  'use strict';
-
++(function ($) {
+  "use strict";
 
   /* PHONE CLASS DEFINITION
    * ====================== */
@@ -29,34 +27,36 @@
     this.options = $.extend({}, $.fn.bfhphone.defaults, options);
     this.$element = $(element);
 
-    if (this.$element.is('input[type="text"]') || this.$element.is('input[type="tel"]')) {
+    if (
+      this.$element.is('input[type="text"]') ||
+      this.$element.is('input[type="tel"]')
+    ) {
       this.addFormatter();
     }
 
-    if (this.$element.is('span')) {
+    if (this.$element.is("span")) {
       this.displayFormatter();
     }
   };
 
   BFHPhone.prototype = {
-
     constructor: BFHPhone,
 
-    addFormatter: function() {
+    addFormatter: function () {
       var $country;
 
-      if (this.options.country !== '') {
-        $country = $(document).find('#' + this.options.country);
+      if (this.options.country !== "") {
+        $country = $(document).find("#" + this.options.country);
 
         if ($country.length !== 0) {
           this.options.format = BFHPhoneFormatList[$country.val()];
-          $country.on('change', {phone: this}, this.changeCountry);
+          $country.on("change", { phone: this }, this.changeCountry);
         } else {
           this.options.format = BFHPhoneFormatList[this.options.country];
         }
       }
-      
-      this.$element.on('keyup.bfhphone.data-api', BFHPhone.prototype.change);
+
+      this.$element.on("keyup.bfhphone.data-api", BFHPhone.prototype.change);
 
       this.loadFormatter();
     },
@@ -72,7 +72,7 @@
     displayFormatter: function () {
       var formattedNumber;
 
-      if (this.options.country !== '') {
+      if (this.options.country !== "") {
         this.options.format = BFHPhoneFormatList[this.options.country];
       }
 
@@ -82,27 +82,26 @@
     },
 
     changeCountry: function (e) {
-      var $this,
-          $phone;
+      var $this, $phone;
 
       $this = $(this);
       $phone = e.data.phone;
 
-      $phone.$element.val(String($phone.$element.val()).replace(/\+\d*/g, ''));
+      $phone.$element.val(String($phone.$element.val()).replace(/\+\d*/g, ""));
       $phone.options.format = BFHPhoneFormatList[$this.val()];
 
       $phone.loadFormatter();
     },
 
-    change: function(e) {
-      var $this,
-          cursorPosition,
-          cursorEnd,
-          formattedNumber;
+    change: function (e) {
+      var $this, cursorPosition, cursorEnd, formattedNumber;
 
-      $this = $(this).data('bfhphone');
+      $this = $(this).data("bfhphone");
 
-      if ($this.$element.is('.disabled') || $this.$element.attr('disabled') !== undefined) {
+      if (
+        $this.$element.is(".disabled") ||
+        $this.$element.attr("disabled") !== undefined
+      ) {
         return true;
       }
 
@@ -112,17 +111,28 @@
       if (cursorPosition === $this.$element.val().length) {
         cursorEnd = true;
       }
-      
-      if (e.which === 8 && $this.options.format.charAt($this.$element.val().length) !== 'd') {
-        $this.$element.val(String($this.$element.val()).substring(0, $this.$element.val().length - 1));
+
+      if (
+        e.which === 8 &&
+        $this.options.format.charAt($this.$element.val().length) !== "d"
+      ) {
+        $this.$element.val(
+          String($this.$element.val()).substring(
+            0,
+            $this.$element.val().length - 1
+          )
+        );
       }
 
-      formattedNumber = formatNumber($this.options.format, $this.$element.val());
-      
+      formattedNumber = formatNumber(
+        $this.options.format,
+        $this.$element.val()
+      );
+
       if (formattedNumber === $this.$element.val()) {
         return true;
       }
-      
+
       $this.$element.val(formattedNumber);
 
       if (cursorEnd) {
@@ -132,20 +142,20 @@
       setCursorPosition($this.$element[0], cursorPosition);
 
       return true;
-    }
-
+    },
   };
 
   function formatNumber(format, number) {
-    var formattedNumber,
-        indexFormat,
-        indexNumber,
-        lastCharacter;
+    var formattedNumber, indexFormat, indexNumber, lastCharacter;
 
-    formattedNumber = '';
-    number = String(number).replace(/\D/g, '');
+    formattedNumber = "";
+    number = String(number).replace(/\D/g, "");
 
-    for (indexFormat = 0, indexNumber = 0; indexFormat < format.length; indexFormat = indexFormat + 1) {
+    for (
+      indexFormat = 0, indexNumber = 0;
+      indexFormat < format.length;
+      indexFormat = indexFormat + 1
+    ) {
       if (/\d/g.test(format.charAt(indexFormat))) {
         if (format.charAt(indexFormat) === number.charAt(indexNumber)) {
           formattedNumber += number.charAt(indexNumber);
@@ -153,22 +163,25 @@
         } else {
           formattedNumber += format.charAt(indexFormat);
         }
-      } else if (format.charAt(indexFormat) !== 'd') {
-        if (number.charAt(indexNumber) !== '' || format.charAt(indexFormat) === '+') {
+      } else if (format.charAt(indexFormat) !== "d") {
+        if (
+          number.charAt(indexNumber) !== "" ||
+          format.charAt(indexFormat) === "+"
+        ) {
           formattedNumber += format.charAt(indexFormat);
         }
       } else {
-        if (number.charAt(indexNumber) === '') {
-          formattedNumber += '';
+        if (number.charAt(indexNumber) === "") {
+          formattedNumber += "";
         } else {
           formattedNumber += number.charAt(indexNumber);
           indexNumber = indexNumber + 1;
         }
       }
     }
-    
+
     lastCharacter = format.charAt(formattedNumber.length);
-    if (lastCharacter !== 'd') {
+    if (lastCharacter !== "d") {
       formattedNumber += lastCharacter;
     }
 
@@ -177,13 +190,13 @@
 
   function getCursorPosition($element) {
     var position = 0,
-        selection;
+      selection;
 
     if (document.selection) {
       // IE Support
       $element.focus();
       selection = document.selection.createRange();
-      selection.moveStart ('character', -$element.value.length);
+      selection.moveStart("character", -$element.value.length);
       position = selection.text.length;
     } else if ($element.selectionStart || $element.selectionStart === 0) {
       position = $element.selectionStart;
@@ -197,16 +210,16 @@
 
     if (document.selection) {
       // IE Support
-      $element.focus ();
+      $element.focus();
       selection = document.selection.createRange();
-      selection.moveStart ('character', -$element.value.length);
-      selection.moveStart ('character', position);
-      selection.moveEnd ('character', 0);
-      selection.select ();
+      selection.moveStart("character", -$element.value.length);
+      selection.moveStart("character", position);
+      selection.moveEnd("character", 0);
+      selection.select();
     } else if ($element.selectionStart || $element.selectionStart === 0) {
       $element.selectionStart = position;
       $element.selectionEnd = position;
-      $element.focus ();
+      $element.focus();
     }
   }
 
@@ -217,18 +230,16 @@
 
   $.fn.bfhphone = function (option) {
     return this.each(function () {
-      var $this,
-          data,
-          options;
+      var $this, data, options;
 
       $this = $(this);
-      data = $this.data('bfhphone');
-      options = typeof option === 'object' && option;
+      data = $this.data("bfhphone");
+      options = typeof option === "object" && option;
 
       if (!data) {
-        $this.data('bfhphone', (data = new BFHPhone(this, options)));
+        $this.data("bfhphone", (data = new BFHPhone(this, options)));
       }
-      if (typeof option === 'string') {
+      if (typeof option === "string") {
         data[option].call($this);
       }
     });
@@ -237,11 +248,10 @@
   $.fn.bfhphone.Constructor = BFHPhone;
 
   $.fn.bfhphone.defaults = {
-    format: '',
-    number: '',
-    country: ''
+    format: "",
+    number: "",
+    country: "",
   };
-
 
   /* PHONE NO CONFLICT
    * ========================== */
@@ -251,12 +261,13 @@
     return this;
   };
 
-
   /* PHONE DATA-API
    * ============== */
 
-  $(document).ready( function () {
-    $('form input[type="text"].bfh-phone, form input[type="tel"].bfh-phone, span.bfh-phone').each(function () {
+  $(document).ready(function () {
+    $(
+      'form input[type="text"].bfh-phone, form input[type="tel"].bfh-phone, span.bfh-phone'
+    ).each(function () {
       var $phone;
 
       $phone = $(this);
@@ -264,5 +275,4 @@
       $phone.bfhphone($phone.data());
     });
   });
-
-}(window.jQuery);
+})(window.jQuery);
