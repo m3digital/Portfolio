@@ -5905,32 +5905,32 @@
     jQuery.event.addProp
   );
 
-  jQuery.each({ focus: "focusin", blur: "focusout" }, function (
-    type,
-    delegateType
-  ) {
-    jQuery.event.special[type] = {
-      // Utilize native event if possible so blur/focus sequence is correct
-      setup: function () {
-        // Claim the first handler
-        // dataPriv.set( this, "focus", ... )
-        // dataPriv.set( this, "blur", ... )
-        leverageNative(this, type, expectSync);
+  jQuery.each(
+    { focus: "focusin", blur: "focusout" },
+    function (type, delegateType) {
+      jQuery.event.special[type] = {
+        // Utilize native event if possible so blur/focus sequence is correct
+        setup: function () {
+          // Claim the first handler
+          // dataPriv.set( this, "focus", ... )
+          // dataPriv.set( this, "blur", ... )
+          leverageNative(this, type, expectSync);
 
-        // Return false to allow normal processing in the caller
-        return false;
-      },
-      trigger: function () {
-        // Force setup before trigger
-        leverageNative(this, type);
+          // Return false to allow normal processing in the caller
+          return false;
+        },
+        trigger: function () {
+          // Force setup before trigger
+          leverageNative(this, type);
 
-        // Return non-false to allow normal event-path propagation
-        return true;
-      },
+          // Return non-false to allow normal event-path propagation
+          return true;
+        },
 
-      delegateType: delegateType,
-    };
-  });
+        delegateType: delegateType,
+      };
+    }
+  );
 
   // Create mouseenter/leave events using mouseover/out and event-time checks
   // so that event delegation works in jQuery.
@@ -8616,19 +8616,19 @@
   // getComputedStyle returns percent when specified for top/left/bottom/right;
   // rather than make the css module depend on the offset module, just check for it here
   jQuery.each(["top", "left"], function (i, prop) {
-    jQuery.cssHooks[prop] = addGetHookIf(support.pixelPosition, function (
-      elem,
-      computed
-    ) {
-      if (computed) {
-        computed = curCSS(elem, prop);
+    jQuery.cssHooks[prop] = addGetHookIf(
+      support.pixelPosition,
+      function (elem, computed) {
+        if (computed) {
+          computed = curCSS(elem, prop);
 
-        // If curCSS returns percentage, fallback to offset
-        return rnumnonpx.test(computed)
-          ? jQuery(elem).position()[prop] + "px"
-          : computed;
+          // If curCSS returns percentage, fallback to offset
+          return rnumnonpx.test(computed)
+            ? jQuery(elem).position()[prop] + "px"
+            : computed;
+        }
       }
-    });
+    );
   });
 
   // Create innerHeight, innerWidth, height, width, outerHeight and outerWidth methods

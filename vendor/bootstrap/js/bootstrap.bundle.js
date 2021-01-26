@@ -559,24 +559,31 @@
    */
 
   $(document)
-    .on(Event$1.CLICK_DATA_API, Selector$1.DATA_TOGGLE_CARROT, function (
-      event
-    ) {
-      event.preventDefault();
-      var button = event.target;
+    .on(
+      Event$1.CLICK_DATA_API,
+      Selector$1.DATA_TOGGLE_CARROT,
+      function (event) {
+        event.preventDefault();
+        var button = event.target;
 
-      if (!$(button).hasClass(ClassName$1.BUTTON)) {
-        button = $(button).closest(Selector$1.BUTTON);
+        if (!$(button).hasClass(ClassName$1.BUTTON)) {
+          button = $(button).closest(Selector$1.BUTTON);
+        }
+
+        Button._jQueryInterface.call($(button), "toggle");
       }
-
-      Button._jQueryInterface.call($(button), "toggle");
-    })
-    .on(Event$1.FOCUS_BLUR_DATA_API, Selector$1.DATA_TOGGLE_CARROT, function (
-      event
-    ) {
-      var button = $(event.target).closest(Selector$1.BUTTON)[0];
-      $(button).toggleClass(ClassName$1.FOCUS, /^focus(in)?$/.test(event.type));
-    });
+    )
+    .on(
+      Event$1.FOCUS_BLUR_DATA_API,
+      Selector$1.DATA_TOGGLE_CARROT,
+      function (event) {
+        var button = $(event.target).closest(Selector$1.BUTTON)[0];
+        $(button).toggleClass(
+          ClassName$1.FOCUS,
+          /^focus(in)?$/.test(event.type)
+        );
+      }
+    );
   /**
    * ------------------------------------------------------------------------
    * jQuery
@@ -1662,25 +1669,27 @@
    * ------------------------------------------------------------------------
    */
 
-  $(document).on(Event$3.CLICK_DATA_API, Selector$3.DATA_TOGGLE, function (
-    event
-  ) {
-    // preventDefault only for <a> elements (which change the URL) not inside the collapsible element
-    if (event.currentTarget.tagName === "A") {
-      event.preventDefault();
+  $(document).on(
+    Event$3.CLICK_DATA_API,
+    Selector$3.DATA_TOGGLE,
+    function (event) {
+      // preventDefault only for <a> elements (which change the URL) not inside the collapsible element
+      if (event.currentTarget.tagName === "A") {
+        event.preventDefault();
+      }
+
+      var $trigger = $(this);
+      var selector = Util.getSelectorFromElement(this);
+      var selectors = [].slice.call(document.querySelectorAll(selector));
+      $(selectors).each(function () {
+        var $target = $(this);
+        var data = $target.data(DATA_KEY$3);
+        var config = data ? "toggle" : $trigger.data();
+
+        Collapse._jQueryInterface.call($target, config);
+      });
     }
-
-    var $trigger = $(this);
-    var selector = Util.getSelectorFromElement(this);
-    var selectors = [].slice.call(document.querySelectorAll(selector));
-    $(selectors).each(function () {
-      var $target = $(this);
-      var data = $target.data(DATA_KEY$3);
-      var config = data ? "toggle" : $trigger.data();
-
-      Collapse._jQueryInterface.call($target, config);
-    });
-  });
+  );
   /**
    * ------------------------------------------------------------------------
    * jQuery
@@ -3129,11 +3138,12 @@
 
     // Remove this legacy support in Popper.js v2
 
-    var legacyGpuAccelerationOption = find(data.instance.modifiers, function (
-      modifier
-    ) {
-      return modifier.name === "applyStyle";
-    }).gpuAcceleration;
+    var legacyGpuAccelerationOption = find(
+      data.instance.modifiers,
+      function (modifier) {
+        return modifier.name === "applyStyle";
+      }
+    ).gpuAcceleration;
     if (legacyGpuAccelerationOption !== undefined) {
       console.warn(
         "WARNING: `gpuAcceleration` option moved to `computeStyle` modifier and will not be supported in future versions of Popper.js!"
@@ -5798,41 +5808,43 @@
    * ------------------------------------------------------------------------
    */
 
-  $(document).on(Event$5.CLICK_DATA_API, Selector$5.DATA_TOGGLE, function (
-    event
-  ) {
-    var _this10 = this;
+  $(document).on(
+    Event$5.CLICK_DATA_API,
+    Selector$5.DATA_TOGGLE,
+    function (event) {
+      var _this10 = this;
 
-    var target;
-    var selector = Util.getSelectorFromElement(this);
+      var target;
+      var selector = Util.getSelectorFromElement(this);
 
-    if (selector) {
-      target = document.querySelector(selector);
-    }
-
-    var config = $(target).data(DATA_KEY$5)
-      ? "toggle"
-      : _objectSpread({}, $(target).data(), $(this).data());
-
-    if (this.tagName === "A" || this.tagName === "AREA") {
-      event.preventDefault();
-    }
-
-    var $target = $(target).one(Event$5.SHOW, function (showEvent) {
-      if (showEvent.isDefaultPrevented()) {
-        // Only register focus restorer if modal will actually get shown
-        return;
+      if (selector) {
+        target = document.querySelector(selector);
       }
 
-      $target.one(Event$5.HIDDEN, function () {
-        if ($(_this10).is(":visible")) {
-          _this10.focus();
-        }
-      });
-    });
+      var config = $(target).data(DATA_KEY$5)
+        ? "toggle"
+        : _objectSpread({}, $(target).data(), $(this).data());
 
-    Modal._jQueryInterface.call($(target), config, this);
-  });
+      if (this.tagName === "A" || this.tagName === "AREA") {
+        event.preventDefault();
+      }
+
+      var $target = $(target).one(Event$5.SHOW, function (showEvent) {
+        if (showEvent.isDefaultPrevented()) {
+          // Only register focus restorer if modal will actually get shown
+          return;
+        }
+
+        $target.one(Event$5.HIDDEN, function () {
+          if ($(_this10).is(":visible")) {
+            _this10.focus();
+          }
+        });
+      });
+
+      Modal._jQueryInterface.call($(target), config, this);
+    }
+  );
   /**
    * ------------------------------------------------------------------------
    * jQuery
@@ -7597,13 +7609,15 @@
    * ------------------------------------------------------------------------
    */
 
-  $(document).on(Event$9.CLICK_DATA_API, Selector$9.DATA_TOGGLE, function (
-    event
-  ) {
-    event.preventDefault();
+  $(document).on(
+    Event$9.CLICK_DATA_API,
+    Selector$9.DATA_TOGGLE,
+    function (event) {
+      event.preventDefault();
 
-    Tab._jQueryInterface.call($(this), "show");
-  });
+      Tab._jQueryInterface.call($(this), "show");
+    }
+  );
   /**
    * ------------------------------------------------------------------------
    * jQuery
